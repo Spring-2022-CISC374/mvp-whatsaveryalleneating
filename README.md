@@ -6,7 +6,7 @@ mvp-whatsaveryalleneating
 Started working on vitamin tetris, the blocks fall now.
 
 ### Noah K
-Create the repo and added jquery for some reason.
+Create the repo and added home screen.
 
 ### Zhenhao
 Started working on the spaceship game
