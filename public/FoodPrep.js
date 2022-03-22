@@ -4,6 +4,7 @@ class FoodPrep extends Phaser.Scene{
         super('bootGame');
     }
     preload(){
+        this.list = ['vegan', 'peanut allergy', 'carnivore'];
         this.newOrder();
         
         this.data.set('order', this.randomOrder);
@@ -33,11 +34,8 @@ class FoodPrep extends Phaser.Scene{
         this.peanut = this.add.image(3*config.width/4 + 20, config.height/2 + 100, 'peanut');
         this.peanut.setScale(.1);
 
-        this.peanut.setInteractive();
-        this.steak.setInteractive();
-        this.peanut.setInteractive();
-
-        this.input.on('gameobjectdown', this.checkOrder, this);
+        
+        this.initInteractice();
 
         this.timer = this.time.addEvent({
             delay: 1000,                // ms
@@ -57,10 +55,22 @@ class FoodPrep extends Phaser.Scene{
             this.resetOrderTime();
         }
 
+        if(this.data.get('time') <= 0){
+            this.timer.remove();
+            this.lettuce.destroy();
+            this.steak.destroy();
+            this.peanut.destroy();
+            this.data.set('order','Nice Try!');
+            this.order.setText('Nice Try!');
+
+        }
+        
         this.text.setText([
             'Time: ' + this.data.get('time'), 
             'FoodTimer: ' + this.data.get('foodTime')
         ]);
+
+        
 
     }
 
@@ -73,12 +83,32 @@ class FoodPrep extends Phaser.Scene{
 
     newOrder(){
         var randomNumber = Phaser.Math.Between(0, 2);
-        var list = ['vegan', 'peanut allergy', 'carnivore'];
-        this.randomOrder = list[randomNumber];
+        this.randomOrder = this.list[randomNumber];
     }
+    
+    initInteractice(){
+        this.peanut.setInteractive();
+        this.peanut.on('pointerdown', () => {
+            if(this.data.get('order') != 'peanut allergy'){
+                this.data.set('time', this.data.get('time') + 5);
+            }
+            this.resetOrderTime();
+        });
+        this.steak.setInteractive();
+        this.steak.on('pointerdown', () => {
+            if(this.data.get('order') != 'vegan'){
+                this.data.set('time', this.data.get('time') + 5);
+            }
+            this.resetOrderTime();
+        });
+        this.lettuce.setInteractive();
+        this.lettuce.on('pointerdown', () => {
+            if(this.data.get('order') != 'carnivore'){
+                this.data.set('time', this.data.get('time') + 5);
+            }
+            this.resetOrderTime();
+        });
 
-    checkOrder(pointer, gameObject){
-        this.resetOrderTime();
     }
 
 
