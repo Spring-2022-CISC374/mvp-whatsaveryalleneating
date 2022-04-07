@@ -1,4 +1,12 @@
-collectFood.Game = function(){};
+collectFood.Game = function(){
+    this.vegRate = 1000;
+    this.vegTimer =0;
+
+    this.friesRate = 500;
+    this.friesTimer = 0;
+
+    this.score = 0;
+};
 
 collectFood.Game.prototype ={
     create: function(){
@@ -30,7 +38,11 @@ collectFood.Game.prototype ={
          this.game.physics.arcade.enableBody(this.player);
          this.player.body.collideWorldBounds = true;
          this.player.body.bounce.set(0.25);
+
+         this.vegs = this.game.add.group();
+         this.friess = this.game.add.group();
         //this.cursorKeys = this.input.keyboard.createCursorKeys();
+        this.scoreText = this.game.add.bitmapText(10,10,'minecraftia','Score: 0',24);
     },
 
     update: function(){
@@ -41,13 +53,78 @@ collectFood.Game.prototype ={
 
         }
         this.game.physics.arcade.collide(this.player);
+        
+        if(this.vegTimer<this.game.time.now){
+            this.createVeg();
+            this.vegTimer = this.game.time.now+this.vegRate;
+        }
+
+        if(this.friesTimer < this.game.time.now){
+            this.createFries();
+            this.friesTimer = this.game.time.now + this.friesRate;
+        }
+
+        this,game.physics.arcade.overlap(this.player, this.vegs, this.coinHit, null, this);
+        this,game.physics.arcade.overlap(this.player, this.friess, this.firesHit, null, this);
+        
+
     },
 
+    createVeg: function(){
+        var x = this.game.width;
+        var y = this.game.rnd.integerInRange(50,this.game.world.height -192);
+        var veg = this.vegs.getFirstExists(false);
+        if(!veg){
+            veg = new Veg(this.game,0,0);
+            this.vegs.add(veg);
+        }
+        veg.reset(x,y);
+        veg.revive();
+    },
+
+    createFries: function(){
+        var x = this.game.width;
+        var y = this.game.rnd.integerInRange(50,this.game.world.height -192);
+        var fries = this.friess.getFirstExists(false);
+        if(!fries){
+            fries = new Fries(this.game,0,0);
+            this.friess.add(fries);
+        }
+        fries.reset(x,y);
+        fries.revive();
+    },
+    shutdown: function(){
+        this.vegs.destroy();
+        this.friess.destroy();
+        this.score = 0;
+        this.vegTimer = 0;
+        this.friesTimer = 0;
+    },
+
+    coinHit: function(player, veg){
+         this.score++;
+         veg.kill();
+         this.scoreText.text = 'Score: '+ this.score;
+
+    },
+    firesHit: function(player, fries){
+        player.kill();
+        fries.kill();
     
 
-    shutdown: function(){
-
-    },
+        //this.background.stopScroll();
+   
+    
+        this.friess.setAll('body.velocity.x', 0);
+        this.vegs.setAll('body.velocity.x', 0);
+    
+        this.friesTimer = Number.MAX_VALUE;
+        this.vegTimer = Number.MAX_VALUE;
+    
+        var scoreboard = new Scoreboard(this.game);
+        scoreboard.show(this.score);
+    }
+    
     // movePlayerManager(){
     //     if(this.cursorKeys.left.isDown){
     //         this.player.setVelocityX(-gameSettings.playerSpeed);
