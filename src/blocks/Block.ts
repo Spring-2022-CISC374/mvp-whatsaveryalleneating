@@ -1,9 +1,12 @@
 import { GameObjects, Scene } from "phaser";
 import { PositionMatrixItem } from "./PositionMatrixItem";
+import { Foods } from "./Foods";
+
+var foods = new Foods();
 
 export abstract class Block {
     protected tileSize: number = 0;
-
+    protected food: string;
     protected _tiles: GameObjects.Sprite[];
     get tiles() {
         return this._tiles;
@@ -44,10 +47,12 @@ export abstract class Block {
     get y(): number {
         return Math.max(...this.tiles.map(tile => tile.y));
     }
-
-    constructor(scene: Scene, tileSize: number) {
+    // TODO - Get food type to work
+    constructor(scene: Scene, tileSize: number, food: string) {
         this.tileSize = tileSize;
-        this._tiles = [this.createTile(scene), this.createTile(scene), this.createTile(scene), this.createTile(scene)];
+        this.food = food;
+        this._tiles = [this.createTile(scene, foods.foodMap.get(food)[0]), this.createTile(scene, foods.foodMap.get(food)[1]),
+             this.createTile(scene, foods.foodMap.get(food)[0]), this.createTile(scene, foods.foodMap.get(food)[1])];
     }
 
     public slide(deltaX: number) {
@@ -79,9 +84,10 @@ export abstract class Block {
         });
     }
 
-    private createTile(scene: Scene): GameObjects.Sprite {
-        const tile = scene.add.sprite(0, 0, "block");
+    private createTile(scene: Scene, type: string): GameObjects.Sprite {
+        const tile = scene.add.sprite(0, 0, type);
         tile.setOrigin(0, 0);
+        console.log(tile.texture.key);
         return tile;
     }
 }

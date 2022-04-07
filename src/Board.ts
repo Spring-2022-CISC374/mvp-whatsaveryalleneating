@@ -34,6 +34,7 @@ export class Board extends Phaser.Events.EventEmitter {
         this.currentBlock.setOrigin(this.startX, this.startY);
     }
 
+    // TODO - VALIDATE THIS WORKS WITH THE INCOMING BLOCK CODE
     public rotateBlockClockwise() {
         this.currentBlock.rotateClockwise();
         if (this.willCollide() || this.currentBlock.y + this.tileSize >= this.height) {
@@ -72,7 +73,8 @@ export class Board extends Phaser.Events.EventEmitter {
             }
         }
     }
-
+    
+    // TODO BREAK INTO TWO SEPARATE FUNCTIONS -> MODIFY HOW BLOCKS ARE DELETED VIA CHECKING THE SPRITE KEY
     private checkFullLines(): number {
         const tilesPerLine = this.width / this.tileSize;
         const ys = this.laidTiles.map(tile => tile.y).filter((y, index, array) => y && array.indexOf(y) === index).sort((y1, y2) => y1 - y2);

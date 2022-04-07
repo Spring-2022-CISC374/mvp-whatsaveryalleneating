@@ -3,9 +3,18 @@ import { BaseGameScene } from "./BaseGameScene";
 import GameData from "../GameData";
 import { Block } from "../blocks/Block";
 import { OBlock } from "../blocks/OBlock";
+import { Foods } from "../blocks/Foods";
 import { Board } from "../Board";
 import { GameUIScene } from "./GameUIScene";
 import { MenuScene } from "./MenuScene"
+import { JBlock } from "../blocks/JBlock";
+import { LBlock } from "../blocks/LBlock";
+import { SBlock } from "../blocks/SBlock";
+import { ZBlock } from "../blocks/ZBlock";
+import { TBlock } from "../blocks/TBlock";
+import { IBlock } from "../blocks/IBlock";
+
+var foods = new Foods();
 
 export class GameScene extends BaseGameScene {
 
@@ -71,8 +80,9 @@ export class GameScene extends BaseGameScene {
       this.board.descendBlock();
     }
 
-    if (this.cursors.space.isDown && time - this.lastRotation >= this.rotationInterval) {
+    if (this.cursors.shift.isDown && time - this.lastRotation >= this.rotationInterval) {
       this.lastRotation = time;
+      console.log("hi noah");
       this.board.rotateBlockClockwise();
     }
 
@@ -120,11 +130,13 @@ export class GameScene extends BaseGameScene {
     graphics.fillRect(0, 0, this.tileSize * GameData.boardWidthTileMultiplier, this.height);
   }
 
-  private blockTypes = [OBlock];
+  private blockTypes = [JBlock, LBlock, SBlock, ZBlock, TBlock, IBlock, OBlock];
+  private foodTypes = Array.from(foods.foodMap.keys())
   private generateBlock(): Block {
-    // TODO: Add preview of next block that will appear
+    // TODO: Add preview of next block that will appear via food type
     const blockType = this.blockTypes[Math.floor(Math.random() * this.blockTypes.length)];
-    return new blockType(this, this.tileSize);
+    const food = this.foodTypes[Math.floor(Math.random() * this.foodTypes.length)];
+    return new blockType(this, this.tileSize, food);
   }
 
   private addControls() {

@@ -1,6 +1,7 @@
 import { Block } from "./Block";
 import { PositionMatrixItem } from "./PositionMatrixItem";
 
+// TODO - TAKE THIS CLASS AND CREATE THE FOOD TYPES
 export class OBlock extends Block {
 
     protected positonMatrix: PositionMatrixItem[][] = [
