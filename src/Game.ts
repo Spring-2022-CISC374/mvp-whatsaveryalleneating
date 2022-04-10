@@ -2,6 +2,8 @@ import { GameScene} from "./scenes/GameScene"
 import { LoadScene } from "./scenes/LoadScene"
 import { MenuScene } from "./scenes/MenuScene"
 import { GameUIScene } from "./scenes/GameUIScene"
+import { FoodPrep } from "./scenes/FoodPrep";
+import { Hub } from "./scenes/Hub";
 
 class Game extends Phaser.Game {
   private static instance: Game;
@@ -12,13 +14,12 @@ class Game extends Phaser.Game {
       parent: "content",
       physics: {
         arcade: {
-          // debug: true,
-          gravity: { y: 0 },
+          gravity: { y: 800 },
         },
         default: "arcade",
       },
       pixelArt: false,
-      scene: [LoadScene, MenuScene, GameScene, GameUIScene],
+      scene: [Hub, LoadScene, MenuScene, GameScene, GameUIScene, FoodPrep],
       type: 0,
       width: 500,
       zoom: 1,

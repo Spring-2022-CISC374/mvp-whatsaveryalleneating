@@ -1,4 +1,7 @@
-class FoodPrep extends Phaser.Scene{
+import { Scene } from 'phaser';
+import { BaseGameScene } from './BaseGameScene';
+
+export class FoodPrep extends BaseGameScene{
 
     protected list;
     protected randomOrder;
@@ -11,9 +14,9 @@ class FoodPrep extends Phaser.Scene{
         };
     protected timer;
 
-    constructor(){
-        super('bootGame');
-    }
+    constructor() {
+        super({ key: FoodPrep.name });
+      }
 
     preload(){
         this.list = ['vegan', 'peanut allergy', 'carnivore'];
@@ -23,9 +26,9 @@ class FoodPrep extends Phaser.Scene{
         this.data.set('time', 60);
         this.data.set('foodTime', 10);
 
-        this.load.image('lettuce', '/assets/images/lettuce.png');
-        this.load.image('steak', '/assets/images/steak.png');
-        this.load.image('peanut', '/assets/images/peanut.png');
+        this.load.image('lettuce', '/assets/lettuce.png');
+        this.load.image('steak', '/assets/steak.png');
+        this.load.image('peanut', '/assets/peanut.png');
 
 
     }
@@ -37,13 +40,13 @@ class FoodPrep extends Phaser.Scene{
             'FoodTimer: ' + this.data.get('foodTime')
         ]);
 
-        this.order = this.add.text(config.width/2, config.height/2 - 100, this.data.get('order'));
+        this.order = this.add.text(this.width/2, this.height/2 - 100, this.data.get('order'));
 
-        this.foods.lettuce = this.add.image(config.width/4, config.height/2 + 100, 'lettuce');
+        this.foods.lettuce = this.add.image(this.width/4, this.height/2 + 100, 'lettuce');
         this.foods.lettuce.setScale(.1);
-        this.foods.steak = this.add.image(config.width/2, config.height/2 + 100, 'steak');
+        this.foods.steak = this.add.image(this.width/2, this.height/2 + 100, 'steak');
         this.foods.steak.setScale(.15);
-        this.foods.peanut = this.add.image(3*config.width/4 + 20, config.height/2 + 100, 'peanut');
+        this.foods.peanut = this.add.image(3*this.width/4 + 20, this.height/2 + 100, 'peanut');
         this.foods.peanut.setScale(.1);
 
         

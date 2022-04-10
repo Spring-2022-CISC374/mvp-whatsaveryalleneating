@@ -1,4 +1,4 @@
-import { Scene } from "phaser";
+import { Game, Scene } from "phaser";
 
 export class BaseGameScene extends Scene {
 
