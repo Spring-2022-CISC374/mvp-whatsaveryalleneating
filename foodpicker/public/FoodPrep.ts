@@ -1,8 +1,20 @@
 class FoodPrep extends Phaser.Scene{
 
+    protected list;
+    protected randomOrder;
+    protected text;
+    protected order;
+    protected foods = {
+            lettuce: null,
+            peanut: null,
+            steak: null,
+        };
+    protected timer;
+
     constructor(){
         super('bootGame');
     }
+
     preload(){
         this.list = ['vegan', 'peanut allergy', 'carnivore'];
         this.newOrder();
@@ -27,12 +39,12 @@ class FoodPrep extends Phaser.Scene{
 
         this.order = this.add.text(config.width/2, config.height/2 - 100, this.data.get('order'));
 
-        this.lettuce = this.add.image(config.width/4, config.height/2 + 100, 'lettuce');
-        this.lettuce.setScale(.1);
-        this.steak = this.add.image(config.width/2, config.height/2 + 100, 'steak');
-        this.steak.setScale(.15);
-        this.peanut = this.add.image(3*config.width/4 + 20, config.height/2 + 100, 'peanut');
-        this.peanut.setScale(.1);
+        this.foods.lettuce = this.add.image(config.width/4, config.height/2 + 100, 'lettuce');
+        this.foods.lettuce.setScale(.1);
+        this.foods.steak = this.add.image(config.width/2, config.height/2 + 100, 'steak');
+        this.foods.steak.setScale(.15);
+        this.foods.peanut = this.add.image(3*config.width/4 + 20, config.height/2 + 100, 'peanut');
+        this.foods.peanut.setScale(.1);
 
         
         this.initInteractice();
@@ -57,9 +69,9 @@ class FoodPrep extends Phaser.Scene{
 
         if(this.data.get('time') <= 0){
             this.timer.remove();
-            this.lettuce.destroy();
-            this.steak.destroy();
-            this.peanut.destroy();
+            this.foods.lettuce.destroy();
+            this.foods.steak.destroy();
+            this.foods.peanut.destroy();
             this.data.set('order','Nice Try!');
             this.order.setText('Nice Try!');
 
@@ -87,22 +99,22 @@ class FoodPrep extends Phaser.Scene{
     }
     
     initInteractice(){
-        this.peanut.setInteractive();
-        this.peanut.on('pointerdown', () => {
+        this.foods.peanut.setInteractive();
+        this.foods.peanut.on('pointerdown', () => {
             if(this.data.get('order') != 'peanut allergy'){
                 this.data.set('time', this.data.get('time') + 5);
             }
             this.resetOrderTime();
         });
-        this.steak.setInteractive();
-        this.steak.on('pointerdown', () => {
+        this.foods.steak.setInteractive();
+        this.foods.steak.on('pointerdown', () => {
             if(this.data.get('order') != 'vegan'){
                 this.data.set('time', this.data.get('time') + 5);
             }
             this.resetOrderTime();
         });
-        this.lettuce.setInteractive();
-        this.lettuce.on('pointerdown', () => {
+        this.foods.lettuce.setInteractive();
+        this.foods.lettuce.on('pointerdown', () => {
             if(this.data.get('order') != 'carnivore'){
                 this.data.set('time', this.data.get('time') + 5);
             }
