@@ -5,5 +5,5 @@
     },
     "include": [
       "**/*.ts"
-    ]
+, "src/prefabs/Fries.js"    ]
   }

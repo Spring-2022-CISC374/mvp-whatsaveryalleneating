@@ -23,7 +23,7 @@ export class MainMenu_D extends BaseGameScene {
         this.player.anchor.setTo(0.5);
         this.player.scale.setTo(0.05);
 
-        this.add.tween(this.player).to({y:this.player.y-16}, 500, (a) => {return a}, true,0, Infinity, true);
+        // this.add.tween(this.player).to({y:this.player.y-16}, 500, (a) => {return a}, true,0, Infinity, true);
         
         this.startText = this.add.bitmapText(0,0,'minecraftia','tap to start',32);
         this.startText.x = this.width/2 - this.startText.textWidth/2;

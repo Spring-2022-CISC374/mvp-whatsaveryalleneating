@@ -11,9 +11,9 @@ export class Preload_D extends BaseGameScene {
 
         this.load.image('background1','assets/images/stomach_backgroud.png');
         this.load.image('foreground1','assets/images/foreground1.png');
-        this.load.spritesheet('player','assets/images/player.png',50,50,0);
-        this.load.spritesheet('veg','assets/images/veg.png',51,51,0);
-        this.load.spritesheet('fries','assets/images/fries.png',51,51,0);
+        this.load.spritesheet('player','assets/images/player.png');
+        this.load.spritesheet('veg','assets/images/veg.png');
+        this.load.spritesheet('fries','assets/images/fries.png');
 
         this.load.bitmapFont('minecraftia','assets/fonts/minecraftia/minecraftia.png','assets/fonts/minecraftia/minecraftia.xml');
 
