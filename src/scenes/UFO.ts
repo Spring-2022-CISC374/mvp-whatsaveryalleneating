@@ -47,7 +47,7 @@ export class UFO extends BaseGameScene {
       veg.setInteractive();
       this.physics.add.collider(this.ufo, veg, (p, s) => {
         console.log('collision');
-        s.destroy(true);
+        s.destroy();
       })
     }
   }
