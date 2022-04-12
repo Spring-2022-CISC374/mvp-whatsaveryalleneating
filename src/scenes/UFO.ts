@@ -17,7 +17,7 @@ export class UFO extends BaseGameScene {
     super.create();
     this.bg = this.add.tileSprite(0, 0, window.innerWidth, window.innerHeight, "background");
     this.bg.setOrigin(0,0);
-    this.ufo = this.add.image(this.width / 5, this.height / 2, 'ufo');
+    this.ufo = this.add.sprite(this.width / 5, this.height / 2, 'ufo');
     this.ufo.displayWidth = this.width / 5;
     this.ufo.displayHeight = this.height / 10;
     this.ufo.setInteractive();
@@ -40,7 +40,7 @@ export class UFO extends BaseGameScene {
   createRandomVeg() {
     const a = Math.random();
     if(a < .01) {
-      let veg = this.add.image(window.innerWidth, window.innerHeight * (Math.random() * 0.6 + 0.2), 'veg');
+      let veg = this.add.sprite(window.innerWidth, window.innerHeight * (Math.random() * 0.6 + 0.2), 'veg');
       veg.displayHeight = this.width / 15;
       veg.displayWidth = this.width / 15;
       this.vegs.push(veg);
@@ -61,8 +61,17 @@ export class UFO extends BaseGameScene {
     this.input.on("pointerup", this.retVelocity, this);
     this.setVelocity(delta)
     this.ufo.setY(this.ufo.y - this.velocity);
-    this.vegs.forEach(veg => veg.setX(veg.x - 6));
+    this.vegs.forEach(veg => {
+      veg.setX(veg.x - 6);
+      if(veg.x < 100 + this.width / 10 && veg.x > 100 - this.width / 10) {
+        if(veg.y > this.ufo.y - this.height / 20 && veg.y < this.ufo.y + this.height / 20) {
+          veg.destroy(true);
+        }
+      }
+    });
     this.createRandomVeg();
+    console.log('x: ' + this.ufo.x);
+    console.log('y: ' + this.ufo.y);
   }
 
 }
