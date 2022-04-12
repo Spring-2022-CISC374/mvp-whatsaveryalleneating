@@ -8,8 +8,9 @@
   },
   "scripts": {
     "build": "yarn build:dev",
-    "build:dev": "NODE_ENV=development webpack",
-    "deploy": "gh-pages -d build",
+    "build:dev": "NODE_ENV=development webpack",  
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",    
     "dev": "NODE_ENV=development webpack-dev-server"
   },
   "devDependencies": {
