@@ -18,9 +18,12 @@
     "Zhenhao Shao.   zhenhao@udel.edu.    https://github.com/Zhenhao963"
   ],
   "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "javascript-obfuscator": "^4.0.0",
     "phaser": "^3.55.2",
     "webpack-merge": "^5.8.0",
+    "webpack-obfuscator": "^3.5.1",
     "webpack-plugin": "^1.0.5",
     "workbox-webpack-plugin": "^6.5.2"
   },

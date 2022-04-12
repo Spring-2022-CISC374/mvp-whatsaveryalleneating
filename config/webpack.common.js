@@ -35,12 +35,15 @@ module.exports = {
   },
   plugins: [
       new HtmlWebpackPlugin({ gameName: package.game.name, template: 'index.html', inject: false }),
-    new CopyWebpackPlugin([
-	{ from: 'assets', to: 'assets' },
-	{ from: 'config/pwa', to: '' },
-	{ from: 'assets/icons/favicon.ico', to: '' },
-	{ from: '*.js', to: ''}	
-    ]),
+    new CopyWebpackPlugin(
+      {
+        patterns:[
+	        { from: 'assets', to: 'assets' },
+	        { from: 'config/pwa', to: '' },
+	        { from: 'assets/icons/favicon.ico', to: '' },
+	        { from: '*.js', to: ''}	
+        ]
+      }),
     new InjectManifest({
       swSrc: path.resolve(__dirname, 'pwa/sw.js')
     })
