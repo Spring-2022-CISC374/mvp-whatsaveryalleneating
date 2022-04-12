@@ -1,9 +1,13 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "sourceMap": true
-    },
-    "include": [
-      "**/*.ts"
-, "src/prefabs/Fries.js"    ]
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "allowUnreachableCode": false,
+    "sourceMap": true,
+    "strictPropertyInitialization": false,
+    "lib": ["dom", "es5", "esnext", "scripthost"]
   }
+}
