@@ -8,7 +8,7 @@ export class End_UFO extends BaseGameScene {
   }
 
   create() {
-    this.scene.start(Hub.name);
+    window.location.href = '/';
   }
 
 }
