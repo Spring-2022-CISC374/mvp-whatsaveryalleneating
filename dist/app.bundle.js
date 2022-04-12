@@ -323,6 +323,18 @@ eval("\r\nvar __extends = (this && this.__extends) || (function () {\r\n    var 
 
 /***/ }),
 
+/***/ "./src/scenes/End_UFO.ts":
+/*!*******************************!*\
+  !*** ./src/scenes/End_UFO.ts ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        if (typeof b !== \"function\" && b !== null)\n            throw new TypeError(\"Class extends value \" + String(b) + \" is not a constructor or null\");\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.End_UFO = void 0;\nvar BaseGameScene_1 = __webpack_require__(/*! ./BaseGameScene */ \"./src/scenes/BaseGameScene.ts\");\nvar Hub_1 = __webpack_require__(/*! ./Hub */ \"./src/scenes/Hub.ts\");\nvar End_UFO = /** @class */ (function (_super) {\n    __extends(End_UFO, _super);\n    function End_UFO() {\n        return _super.call(this, { key: End_UFO.name }) || this;\n    }\n    End_UFO.prototype.create = function () {\n        this.scene.start(Hub_1.Hub.name);\n    };\n    return End_UFO;\n}(BaseGameScene_1.BaseGameScene));\nexports.End_UFO = End_UFO;\n\n\n//# sourceURL=webpack:///./src/scenes/End_UFO.ts?");
+
+/***/ }),
+
 /***/ "./src/scenes/FoodPrep.ts":
 /*!********************************!*\
   !*** ./src/scenes/FoodPrep.ts ***!
@@ -367,7 +379,9 @@ eval("\r\nvar __extends = (this && this.__extends) || (function () {\r\n    var 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
 eval("\r\nvar __extends = (this && this.__extends) || (function () {\r\n    var extendStatics = function (d, b) {\r\n        extendStatics = Object.setPrototypeOf ||\r\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\r\n            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };\r\n        return extendStatics(d, b);\r\n    };\r\n    return function (d, b) {\r\n        if (typeof b !== \"function\" && b !== null)\r\n            throw new TypeError(\"Class extends value \" + String(b) + \" is not a constructor or null\");\r\n        extendStatics(d, b);\r\n        function __() { this.constructor = d; }\r\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\r\n    };\r\n})();\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.Hub = void 0;\r\nvar BaseGameScene_1 = __webpack_require__(/*! ./BaseGameScene */ \"./src/scenes/BaseGameScene.ts\");\r\nvar FoodPrep_1 = __webpack_require__(/*! ./FoodPrep */ \"./src/scenes/FoodPrep.ts\");\r\nvar LoadScene_1 = __webpack_require__(/*! ./LoadScene */ \"./src/scenes/LoadScene.ts\");\r\nvar Hub = /** @class */ (function (_super) {\r\n    __extends(Hub, _super);\r\n    function Hub() {\r\n        return _super.call(this, { key: Hub.name }) || this;\r\n    }\r\n    Hub.prototype.create = function () {\r\n        var _this = this;\r\n        var a = document.getElementById('button1');\r\n        var b = document.getElementById('button2');\r\n        var c = document.getElementById('button3');\r\n        a.addEventListener('click', function () {\r\n            _this.scene.start(LoadScene_1.LoadScene.name);\r\n            a.parentElement.hidden = true;\r\n        });\r\n        b.addEventListener('click', function () {\r\n            _this.scene.start(FoodPrep_1.FoodPrep.name);\r\n            b.parentElement.hidden = true;\r\n        });\r\n    };\r\n    return Hub;\r\n}(BaseGameScene_1.BaseGameScene));\r\nexports.Hub = Hub;\r\n\n\n//# sourceURL=webpack:///./src/scenes/Hub.ts?");
+
 
 /***/ }),
 
@@ -383,6 +397,18 @@ eval("\r\nvar __extends = (this && this.__extends) || (function () {\r\n    var 
 
 /***/ }),
 
+/***/ "./src/scenes/Load_UFO.ts":
+/*!********************************!*\
+  !*** ./src/scenes/Load_UFO.ts ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        if (typeof b !== \"function\" && b !== null)\n            throw new TypeError(\"Class extends value \" + String(b) + \" is not a constructor or null\");\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Load_UFO = void 0;\nvar BaseGameScene_1 = __webpack_require__(/*! ./BaseGameScene */ \"./src/scenes/BaseGameScene.ts\");\nvar UFO_1 = __webpack_require__(/*! ./UFO */ \"./src/scenes/UFO.ts\");\nvar Load_UFO = /** @class */ (function (_super) {\n    __extends(Load_UFO, _super);\n    function Load_UFO() {\n        return _super.call(this, { key: Load_UFO.name }) || this;\n    }\n    Load_UFO.prototype.preload = function () {\n        this.game.config.fullscreenTarget;\n        this.load.image('ufo', '../assets/images/player.png');\n        this.load.image('background', '../assets/images/stomach_background.png');\n        this.load.image('veg', '../assets/images/veg.png');\n    };\n    Load_UFO.prototype.create = function () {\n        this.game.scale.resize(window.innerWidth, window.innerHeight);\n        this.scene.start(UFO_1.UFO.name);\n    };\n    return Load_UFO;\n}(BaseGameScene_1.BaseGameScene));\nexports.Load_UFO = Load_UFO;\n\n\n//# sourceURL=webpack:///./src/scenes/Load_UFO.ts?");
+
+/***/ }),
+
 /***/ "./src/scenes/MenuScene.ts":
 /*!*********************************!*\
   !*** ./src/scenes/MenuScene.ts ***!
@@ -392,6 +418,7 @@ eval("\r\nvar __extends = (this && this.__extends) || (function () {\r\n    var 
 
 "use strict";
 eval("\r\nvar __extends = (this && this.__extends) || (function () {\r\n    var extendStatics = function (d, b) {\r\n        extendStatics = Object.setPrototypeOf ||\r\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\r\n            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };\r\n        return extendStatics(d, b);\r\n    };\r\n    return function (d, b) {\r\n        if (typeof b !== \"function\" && b !== null)\r\n            throw new TypeError(\"Class extends value \" + String(b) + \" is not a constructor or null\");\r\n        extendStatics(d, b);\r\n        function __() { this.constructor = d; }\r\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\r\n    };\r\n})();\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.MenuScene = void 0;\r\nvar BaseGameScene_1 = __webpack_require__(/*! ./BaseGameScene */ \"./src/scenes/BaseGameScene.ts\");\r\nvar GameData_1 = __webpack_require__(/*! ../GameData */ \"./src/GameData.ts\");\r\nvar GameScene_1 = __webpack_require__(/*! ./GameScene */ \"./src/scenes/GameScene.ts\");\r\nvar MenuScene = /** @class */ (function (_super) {\r\n    __extends(MenuScene, _super);\r\n    function MenuScene() {\r\n        var _this = _super.call(this, { key: MenuScene.name }) || this;\r\n        _this.textStyle = { color: _this.textColor, align: \"center\", fontSize: \"24px\" };\r\n        _this.showPoints = false;\r\n        return _this;\r\n    }\r\n    MenuScene.prototype.init = function (data) {\r\n        this.showPoints = data.showPoints;\r\n    };\r\n    MenuScene.prototype.create = function () {\r\n        _super.prototype.create.call(this);\r\n        var titleLabel = this.add.text(0, 30, \"Vitamin-Tetris\", this.textStyle);\r\n        titleLabel.x = (this.width - titleLabel.width) / 2;\r\n        if (this.showPoints) {\r\n            var gameOverLabel = this.add.text(0, 150, \"Game over\", this.textStyle);\r\n            gameOverLabel.x = (this.width - gameOverLabel.width) / 2;\r\n            var pointsLabel = this.add.text(0, 200, \"You earned \".concat(GameData_1.default.gamePoints, \" points\"), this.textStyle);\r\n            pointsLabel.x = (this.width - pointsLabel.width) / 2;\r\n        }\r\n        var playButton = this.add.image(this.width / 2, this.height / 2, \"playIcon\");\r\n        playButton.setInteractive();\r\n        playButton.on(\"pointerdown\", this.startGame, this);\r\n        this.input.keyboard.on(\"keydown_SPACE\", this.startGame, this);\r\n        this.input.keyboard.on(\"keydown_ENTER\", this.startGame, this);\r\n    };\r\n    MenuScene.prototype.startGame = function () {\r\n        this.sound.play(\"click\", { volume: 0.1 });\r\n        this.scene.start(GameScene_1.GameScene.name);\r\n    };\r\n    return MenuScene;\r\n}(BaseGameScene_1.BaseGameScene));\r\nexports.MenuScene = MenuScene;\r\n\n\n//# sourceURL=webpack:///./src/scenes/MenuScene.ts?");
+
 
 /***/ })
 

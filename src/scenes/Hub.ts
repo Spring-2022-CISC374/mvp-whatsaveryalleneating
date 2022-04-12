@@ -1,6 +1,7 @@
 import { BaseGameScene } from "./BaseGameScene";
 import { FoodPrep } from "./FoodPrep";
 import { LoadScene } from "./LoadScene";
+import { Load_UFO } from "./Load_UFO";
 import { Preload_D } from "./Preload_D";
 
 export class Hub extends BaseGameScene {
@@ -15,11 +16,12 @@ export class Hub extends BaseGameScene {
     const c = document.getElementById('button3');
     a.addEventListener('click', () => {
       this.scene.start(LoadScene.name);
-      a.parentElement.hidden = true;
     })
     b.addEventListener('click', () => {
       this.scene.start(FoodPrep.name);
-      b.parentElement.hidden = true;
+    })
+    c.addEventListener('click', () => {
+      this.scene.start(Load_UFO.name);
     })
   }
 
