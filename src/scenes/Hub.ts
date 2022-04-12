@@ -11,16 +11,22 @@ export class Hub extends BaseGameScene {
   }
 
   public create() {
-    const a = document.getElementById('button1');
-    const b = document.getElementById('button2');
-    const c = document.getElementById('button3');
-    a.addEventListener('click', () => {
+    const button1 = this.add.text(20, 30, "Tetris");
+    button1.setBackgroundColor('darkblue');
+    const button2 = this.add.text(20, 60, "Food Prep");
+    button2.setBackgroundColor('darkblue');
+    const button3 = this.add.text(20, 90, "Digestive System");
+    button3.setBackgroundColor('darkblue');
+    button1.setInteractive();
+    button2.setInteractive();
+    button3.setInteractive();
+    button1.on('pointerup', () => {
       this.scene.start(LoadScene.name);
     })
-    b.addEventListener('click', () => {
+    button2.on('pointerup', () => {
       this.scene.start(FoodPrep.name);
     })
-    c.addEventListener('click', () => {
+    button3.on('pointerup', () => {
       this.scene.start(Load_UFO.name);
     })
   }
