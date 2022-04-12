@@ -148,23 +148,12 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push([0,"vendors"]);
+/******/ 	deferredModules.push(["./src/Game.ts","vendors"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "./node_modules/webpack/hot sync ^\\.\\/log$":
-/*!*************************************************!*\
-  !*** (webpack)/hot sync nonrecursive ^\.\/log$ ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./node_modules/webpack/hot sync ^\\\\.\\\\/log$\";\n\n//# sourceURL=webpack:///(webpack)/hot_sync_nonrecursive_^\\.\\/log$?");
-
-/***/ }),
 
 /***/ "./src/Board.ts":
 /*!**********************!*\
@@ -403,17 +392,6 @@ eval("\nvar __extends = (this && this.__extends) || (function () {\n    var exte
 
 "use strict";
 eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        if (typeof b !== \"function\" && b !== null)\n            throw new TypeError(\"Class extends value \" + String(b) + \" is not a constructor or null\");\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.MenuScene = void 0;\nvar BaseGameScene_1 = __webpack_require__(/*! ./BaseGameScene */ \"./src/scenes/BaseGameScene.ts\");\nvar GameData_1 = __webpack_require__(/*! ../GameData */ \"./src/GameData.ts\");\nvar GameScene_1 = __webpack_require__(/*! ./GameScene */ \"./src/scenes/GameScene.ts\");\nvar MenuScene = /** @class */ (function (_super) {\n    __extends(MenuScene, _super);\n    function MenuScene() {\n        var _this = _super.call(this, { key: MenuScene.name }) || this;\n        _this.textStyle = { color: _this.textColor, align: \"center\", fontSize: \"24px\" };\n        _this.showPoints = false;\n        return _this;\n    }\n    MenuScene.prototype.init = function (data) {\n        this.showPoints = data.showPoints;\n    };\n    MenuScene.prototype.create = function () {\n        _super.prototype.create.call(this);\n        var titleLabel = this.add.text(0, 30, \"Vitamin-Tetris\", this.textStyle);\n        titleLabel.x = (this.width - titleLabel.width) / 2;\n        if (this.showPoints) {\n            var gameOverLabel = this.add.text(0, 150, \"Game over\", this.textStyle);\n            gameOverLabel.x = (this.width - gameOverLabel.width) / 2;\n            var pointsLabel = this.add.text(0, 200, \"You earned \".concat(GameData_1.default.gamePoints, \" points\"), this.textStyle);\n            pointsLabel.x = (this.width - pointsLabel.width) / 2;\n        }\n        var playButton = this.add.image(this.width / 2, this.height / 2, \"playIcon\");\n        playButton.setInteractive();\n        playButton.on(\"pointerdown\", this.startGame, this);\n        this.input.keyboard.on(\"keydown_SPACE\", this.startGame, this);\n        this.input.keyboard.on(\"keydown_ENTER\", this.startGame, this);\n    };\n    MenuScene.prototype.startGame = function () {\n        this.sound.play(\"click\", { volume: 0.1 });\n        this.scene.start(GameScene_1.GameScene.name);\n    };\n    return MenuScene;\n}(BaseGameScene_1.BaseGameScene));\nexports.MenuScene = MenuScene;\n\n\n//# sourceURL=webpack:///./src/scenes/MenuScene.ts?");
-
-/***/ }),
-
-/***/ 0:
-/*!*****************************************************************************!*\
-  !*** multi (webpack)-dev-server/client?http://localhost:8080 ./src/Game.ts ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("__webpack_require__(/*! /mnt/c/Users/noahk/Documents/School/CISC374/code/merging/mvp-whatsaveryalleneating/node_modules/webpack-dev-server/client/index.js?http://localhost:8080 */\"./node_modules/webpack-dev-server/client/index.js?http://localhost:8080\");\nmodule.exports = __webpack_require__(/*! ./src/Game.ts */\"./src/Game.ts\");\n\n\n//# sourceURL=webpack:///multi_(webpack)-dev-server/client?");
 
 /***/ })
 
