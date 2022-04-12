@@ -18,7 +18,11 @@
     "Zhenhao Shao.   zhenhao@udel.edu.    https://github.com/Zhenhao963"
   ],
   "dependencies": {
-    "phaser": "^3.55.2"
+    "html-webpack-plugin": "^5.5.0",
+    "phaser": "^3.55.2",
+    "webpack-merge": "^5.8.0",
+    "webpack-plugin": "^1.0.5",
+    "workbox-webpack-plugin": "^6.5.2"
   },
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js",
