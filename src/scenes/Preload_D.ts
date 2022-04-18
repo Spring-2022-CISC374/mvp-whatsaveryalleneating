@@ -9,13 +9,13 @@ export class Preload_D extends BaseGameScene {
 
     preload() {
 
-        this.load.image('background1','~/assets/images/stomach_backgroud.png');
-        this.load.image('foreground1','~/assets/images/foreground1.png');
-        this.load.spritesheet('player','~/assets/images/player.png');
-        this.load.spritesheet('veg','~/assets/images/veg.png');
-        this.load.spritesheet('fries','~/assets/images/fries.png');
+        this.load.image('background1','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/images/stomach_backgroud.png');
+        this.load.image('foreground1','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/images/foreground1.png');
+        this.load.spritesheet('player','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/images/player.png');
+        this.load.spritesheet('veg','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/images/veg.png');
+        this.load.spritesheet('fries','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/images/fries.png');
 
-        this.load.bitmapFont('minecraftia','~/assets/fonts/minecraftia/minecraftia.png','assets/fonts/minecraftia/minecraftia.xml');
+        this.load.bitmapFont('minecraftia','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/fonts/minecraftia/minecraftia.png','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/fonts/minecraftia/minecraftia.xml');
 
     }
 
