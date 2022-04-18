@@ -24,7 +24,7 @@
     "deploy-alpha": "webpack --config config/webpack.deploy.js --env.endpoint=alpha && gh-pages -d dist",
     "deploy-beta": "webpack --config config/webpack.deploy.js --env.endpoint=beta && gh-pages -d dist",
     "deploy-final": "webpack --config config/webpack.deploy.js --env.endpoint=final && gh-pages -d dist",
-    "deploy-all": "gh-pages -d dist"
+    "deploy-all":  "gh-pages -d dist -b master"
   },
   "keywords": [
     "Phaser",
