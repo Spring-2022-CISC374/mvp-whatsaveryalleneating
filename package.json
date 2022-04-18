@@ -2,7 +2,7 @@
   "name": "mvp-whatsaveryalleneating",
   "version": "0.0.2",
   "description": "Game to learn about food and digestion",
-  "homepage": "https://github.com/Spring-2022-CISC374/mvp-whatsaveryalleneating",
+  "homepage": "https://github.com/Spring-2022-CISC374/mvp-whatsaveryalleneating/",
   "main": "index.js",
   "game": {
     "url": "mvp-whatsaveryalleneating",
