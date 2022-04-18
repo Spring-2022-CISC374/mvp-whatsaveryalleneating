@@ -1,14 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
-    "strict": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "esModuleInterop": true,
-    "allowUnreachableCode": false,
-    "sourceMap": true,
-    "strictPropertyInitialization": false,
-    "lib": ["dom", "es5", "esnext", "scripthost"]
-  }
+    "lib": ["es6", "dom", "es2017"],
+  },
+  "include": [
+    "src/*"
+  ]
 }

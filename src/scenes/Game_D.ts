@@ -1,7 +1,4 @@
 import { BaseGameScene } from "./BaseGameScene";
-import { Fries } from "../prefabs/Fries";
-import { Veg } from "../prefabs/Veg";
-import { Scoreboard } from "../prefabs/Scoreboard";
 
 export class Game_D extends BaseGameScene {
 
@@ -78,7 +75,6 @@ export class Game_D extends BaseGameScene {
         var y = Math.random()*(this.height - 142) + 50;
         var veg = this.vegs.getFirstExists(false);
         if(!veg){
-            veg = new Veg(this.game,0,0);
             this.vegs.add(veg);
         }
         veg.reset(x,y);
@@ -90,7 +86,6 @@ export class Game_D extends BaseGameScene {
         var y = Math.random()*(this.height - 142) + 50;
         var fries = this.fries.getFirstExists(false);
         if(!fries){
-            fries = new Fries(this.game,0,0);
             this.fries.add(fries);
         }
         fries.reset(x,y);
@@ -124,8 +119,5 @@ export class Game_D extends BaseGameScene {
     
         this.friesTimer = Number.MAX_VALUE;
         this.vegTimer = Number.MAX_VALUE;
-    
-        var scoreboard = new Scoreboard(this.game);
-        scoreboard.show(this.score);
-    }
+        }
 }
