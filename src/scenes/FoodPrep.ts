@@ -27,9 +27,9 @@ export class FoodPrep extends BaseGameScene{
         this.data.set('time', 30);
         this.data.set('foodTime', 10);
 
-        this.load.image('lettuce', '/assets/lettuce.png');
-        this.load.image('steak', '/assets/steak.png');
-        this.load.image('peanut', '/assets/peanut.png');
+        this.load.image('lettuce', '~/assets/lettuce.png');
+        this.load.image('steak', '~/assets/steak.png');
+        this.load.image('peanut', '~/assets/peanut.png');
 
 
     }
