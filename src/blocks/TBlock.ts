@@ -3,7 +3,7 @@ import { PositionMatrixItem } from "./PositionMatrixItem";
 
 export class TBlock extends Block {
 
-    protected positonMatrix: PositionMatrixItem[][] = [
+    public positonMatrix: PositionMatrixItem[][] = [
         [
             new PositionMatrixItem(this.tileSize, 0),
             new PositionMatrixItem(0, -1 * this.tileSize),

@@ -15,6 +15,7 @@ export class LoadScene extends Scene {
     this.load.image("blockD", "https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/block-32-D.png");
     this.load.image("blockK", "https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/block-32-K.png");
     this.load.image("blockCal", "https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/block-32-Cal.png");
+    this.load.image("block", "https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/block-32.png");
     this.load.audio("tick", "https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/tickSound.wav");
     this.load.audio("click", "https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/click.wav");
     this.load.audio("lineBreak", "https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/lineBreak.wav");

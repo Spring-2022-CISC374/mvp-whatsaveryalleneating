@@ -1,4 +1,4 @@
-import { Input, Sound } from "phaser";
+import { GameObjects, Input, Sound } from "phaser";
 import { BaseGameScene } from "./BaseGameScene";
 import GameData from "../GameData";
 import { Block } from "../blocks/Block";
@@ -38,6 +38,12 @@ export class GameScene extends BaseGameScene {
 
   private blockQuickDescend = false;
 
+  private blockTypes = [JBlock, LBlock, SBlock, ZBlock, TBlock, IBlock, OBlock];
+  private foodTypes = Array.from(foods.foodMap.keys())
+  public nextBlankBlock: Block;
+  public nextFoodText = "aaa";
+  public foodTextObject: GameObjects.Text;
+
   private board: Board;
 
   constructor() {
@@ -51,18 +57,29 @@ export class GameScene extends BaseGameScene {
     this.scene.launch(GameUIScene.name);
     this.addControls();
 
+    this.board = new Board(this.height, this.tileSize * GameData.boardWidthTileMultiplier, this.tileSize);
+    this.board.initNextBlock(this.generateBlock())
+    this.board.setCurrentBlock(this.generateBlock());
+    this.nextBlankBlock = Object.create(this.board.nextBlock);
+    this.nextBlankBlock._tiles =  [this.nextBlankBlock.createTile(this, "block"), 
+    this.nextBlankBlock.createTile(this, "block"),
+    this.nextBlankBlock.createTile(this, "block"), 
+    this.nextBlankBlock.createTile(this, "block")];
+    this.nextBlankBlock.position = 1;
+    this.nextBlankBlock.setOrigin(380, 300)
+    
+    this.foodTextObject = this.add.text(400, 450, this.nextFoodText, {color:"black"});
+
     this.tickSound = this.sound.add("tick");
     this.lineBreakSound = this.sound.add("lineBreak", { volume: 0.2 });
-
-    this.board = new Board(this.height, this.tileSize * GameData.boardWidthTileMultiplier, this.tileSize);
 
     this.board.on(Board.blockLaidEvent, this.onLaidBlock, this);
     this.board.on(Board.lineBrakeEvent, this.onLineBreak, this);
     this.board.on(Board.boardFullEvent, this.gameOver, this);
     this.board.on(Board.blockWillBeLaidEvent, () => this.blockQuickDescend = true, this);
     this.board.on(Board.blockDescendEvent, () => this.blockQuickDescend = false, this);
-
-    this.board.setCurrentBlock(this.generateBlock());
+   
+    
 
     GameData.startTime = new Date();
     // TODO: Add button for muting backround music and sound effects
@@ -70,6 +87,23 @@ export class GameScene extends BaseGameScene {
   }
 
   public update(time: number, delta: number) {
+    this.nextFoodText = this.board.nextBlock.food;
+    this.foodTextObject.setText(this.nextFoodText);
+
+    var sprites = this.nextBlankBlock._tiles;
+    sprites.forEach(sprite => {
+      sprite.destroy();
+    })
+
+    this.nextBlankBlock = Object.create(this.board.nextBlock);
+    this.nextBlankBlock._tiles =  [this.nextBlankBlock.createTile(this, "block"), 
+    this.nextBlankBlock.createTile(this, "block"),
+    this.nextBlankBlock.createTile(this, "block"), 
+    this.nextBlankBlock.createTile(this, "block")];
+    this.nextBlankBlock.position = 1;
+    this.nextBlankBlock.setOrigin(380, 300)
+
+
     if (this.lastDescend === 0) {
       this.lastDescend = time;
       return;
@@ -82,7 +116,6 @@ export class GameScene extends BaseGameScene {
 
     if (this.cursors.shift.isDown && time - this.lastRotation >= this.rotationInterval) {
       this.lastRotation = time;
-      console.log("hi noah");
       this.board.rotateBlockClockwise();
     }
 
@@ -130,10 +163,10 @@ export class GameScene extends BaseGameScene {
     graphics.fillRect(0, 0, this.tileSize * GameData.boardWidthTileMultiplier, this.height);
   }
 
-  private blockTypes = [JBlock, LBlock, SBlock, ZBlock, TBlock, IBlock, OBlock];
-  private foodTypes = Array.from(foods.foodMap.keys())
+
   private generateBlock(): Block {
     // TODO: Add preview of next block that will appear via food type
+    this.foodTypes = this.foodTypes.filter(food => food != 'blank');
     const blockType = this.blockTypes[Math.floor(Math.random() * this.blockTypes.length)];
     const food = this.foodTypes[Math.floor(Math.random() * this.foodTypes.length)];
     return new blockType(this, this.tileSize, food);

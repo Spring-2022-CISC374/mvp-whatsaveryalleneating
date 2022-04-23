@@ -9,6 +9,7 @@ export class Foods {
         this.foodMap.set("salmon", ["blockD", "blockB"]);
         this.foodMap.set("lettuce", ["blockK", "blockA"]);
         this.foodMap.set("eggs", ["blockD", "blockD"]);
+        this.foodMap.set("blank", ["block", "block"])
         console.log(this.foodMap);
     }
 }
