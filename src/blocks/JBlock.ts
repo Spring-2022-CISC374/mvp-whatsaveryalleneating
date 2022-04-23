@@ -3,7 +3,7 @@ import { PositionMatrixItem } from "./PositionMatrixItem";
 
 export class JBlock extends Block {
 
-    protected positonMatrix: PositionMatrixItem[][] = [
+    public positonMatrix: PositionMatrixItem[][] = [
         [
             new PositionMatrixItem(-1 * this.tileSize, this.tileSize),
             new PositionMatrixItem(0, this.tileSize),

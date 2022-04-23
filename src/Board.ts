@@ -13,6 +13,7 @@ export class Board extends Phaser.Events.EventEmitter {
 
     private laidTiles: GameObjects.Sprite[];
     private currentBlock: Block;
+    public nextBlock: Block;
 
     private tileSize = 0;
     private startX = 0;
@@ -23,18 +24,22 @@ export class Board extends Phaser.Events.EventEmitter {
         this.height = height;
         this.width = width;
         this.tileSize = tileSize;
-
         this.startX = (this.width / 2) - this.tileSize;
         this.laidTiles = [];
     }
 
     public setCurrentBlock(block: Block) {
-        this.currentBlock = block;
+        this.currentBlock = this.nextBlock;
+        this.nextBlock = block;
+        this.nextBlock.setOrigin(this.startX-1, this.startY-100);
         this.currentBlock.rotateRandomly();
         this.currentBlock.setOrigin(this.startX, this.startY);
     }
 
-    // TODO - VALIDATE THIS WORKS WITH THE INCOMING BLOCK CODE
+    public initNextBlock(block: Block){
+        this.nextBlock = block;
+    }
+
     public rotateBlockClockwise() {
         this.currentBlock.rotateClockwise();
         if (this.willCollide() || this.currentBlock.y + this.tileSize >= this.height) {
@@ -76,6 +81,7 @@ export class Board extends Phaser.Events.EventEmitter {
     
     // TODO BREAK INTO TWO SEPARATE FUNCTIONS -> MODIFY HOW BLOCKS ARE DELETED VIA CHECKING THE SPRITE KEY
     private checkFullLines(): number {
+        console.log(this.laidTiles)
         const tilesPerLine = this.width / this.tileSize;
         const ys = this.laidTiles.map(tile => tile.y).filter((y, index, array) => y && array.indexOf(y) === index).sort((y1, y2) => y1 - y2);
 

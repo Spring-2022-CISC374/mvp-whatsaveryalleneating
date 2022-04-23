@@ -6,19 +6,19 @@ var foods = new Foods();
 
 export abstract class Block {
     protected tileSize: number = 0;
-    protected food: string;
-    protected _tiles: GameObjects.Sprite[];
+    public food: string;
+    public _tiles: GameObjects.Sprite[];
     get tiles() {
         return this._tiles;
     }
 
-    protected positonMatrix: PositionMatrixItem[][];
+    public positonMatrix: PositionMatrixItem[][];
 
-    private _position: number = 0;
-    private get position(): number {
+    public _position: number = 0;
+    public get position(): number {
         return this._position;
     }
-    private set position(val: number) {
+    public set position(val: number) {
         // Set position accordingly to postion matrix. Shifting to possible indexes when necessarry
         // i.e when rotationg counter clockwise and value will be less than 0 set last of positions from positionMatrix.
         if (val < 0) {
@@ -47,7 +47,7 @@ export abstract class Block {
     get y(): number {
         return Math.max(...this.tiles.map(tile => tile.y));
     }
-    // TODO - Get food type to work
+
     constructor(scene: Scene, tileSize: number, food: string) {
         this.tileSize = tileSize;
         this.food = food;
@@ -84,7 +84,7 @@ export abstract class Block {
         });
     }
 
-    private createTile(scene: Scene, type: string): GameObjects.Sprite {
+    public createTile(scene: Scene, type: string): GameObjects.Sprite {
         const tile = scene.add.sprite(0, 0, type);
         tile.setOrigin(0, 0);
         console.log(tile.texture.key);

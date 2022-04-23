@@ -4,7 +4,7 @@ import { PositionMatrixItem } from "./PositionMatrixItem";
 // TODO - TAKE THIS CLASS AND CREATE THE FOOD TYPES
 export class OBlock extends Block {
 
-    protected positonMatrix: PositionMatrixItem[][] = [
+    public positonMatrix: PositionMatrixItem[][] = [
         [
             new PositionMatrixItem(this.tileSize, 0),
             new PositionMatrixItem(0, this.tileSize),

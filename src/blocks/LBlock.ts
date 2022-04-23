@@ -3,7 +3,7 @@ import { PositionMatrixItem } from "./PositionMatrixItem";
 
 export class LBlock extends Block {
 
-    protected positonMatrix: PositionMatrixItem[][] = [
+    public positonMatrix: PositionMatrixItem[][] = [
         [
             new PositionMatrixItem(-1 * this.tileSize, - 1 * this.tileSize),
             new PositionMatrixItem(0, -1 * this.tileSize),
