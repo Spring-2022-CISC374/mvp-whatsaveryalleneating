@@ -1,8 +1,7 @@
 import { BaseGameScene } from "./BaseGameScene";
 import { FoodPrep } from "./FoodPrep";
-import { LoadScene } from "./LoadScene";
+import { VT_Tut } from "./VT_Tutorial_Scene";
 import { Load_UFO } from "./Load_UFO";
-import { Preload_D } from "./Preload_D";
 
 export class Hub extends BaseGameScene {
 
@@ -21,7 +20,7 @@ export class Hub extends BaseGameScene {
     button2.setInteractive();
     button3.setInteractive();
     button1.on('pointerup', () => {
-      this.scene.start(LoadScene.name);
+      this.scene.start("vt-tut");
     })
     button2.on('pointerup', () => {
       this.scene.start(FoodPrep.name);
