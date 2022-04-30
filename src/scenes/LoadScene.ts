@@ -23,9 +23,6 @@ export class LoadScene extends Scene {
   }
 
   public create() {
-    const backgroundSound = this.sound.add("background", { volume: 0.1, loop: true });
-    backgroundSound.play();
-
     this.scene.start(MenuScene.name);
   }
 }

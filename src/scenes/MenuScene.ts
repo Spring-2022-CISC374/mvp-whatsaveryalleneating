@@ -1,6 +1,7 @@
 import { BaseGameScene } from "./BaseGameScene";
 import GameData from "../GameData";
 import { GameScene } from "./GameScene";
+import { Hub } from "./Hub";
 
 export class MenuScene extends BaseGameScene {
 
@@ -17,6 +18,8 @@ export class MenuScene extends BaseGameScene {
 
   public create() {
     super.create();
+    const backgroundSound = this.sound.add("background", { volume: 0.1, loop: true });
+    backgroundSound.play();
 
     const titleLabel = this.add.text(0, 30, "Vitamin-Tetris", this.textStyle);
     titleLabel.x = (this.width - titleLabel.width) / 2;
@@ -35,6 +38,14 @@ export class MenuScene extends BaseGameScene {
 
     this.input.keyboard.on("keydown_SPACE", this.startGame, this);
     this.input.keyboard.on("keydown_ENTER", this.startGame, this);
+
+    const backButton = this.add.text(190, 500, "Go Back To Menu");
+    backButton.setBackgroundColor('darkBlue');
+    backButton.setInteractive();
+    backButton.on('pointerup', () => {
+      backgroundSound.stop();
+      this.scene.start(Hub.name);
+    })
   }
 
   private startGame() {
