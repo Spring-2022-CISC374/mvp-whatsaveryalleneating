@@ -114,7 +114,7 @@ export class GameScene extends BaseGameScene {
       this.board.descendBlock();
     }
 
-    if (this.cursors.shift.isDown && time - this.lastRotation >= this.rotationInterval) {
+    if (this.cursors.shift.isDown || this.cursors.space.isDown && time - this.lastRotation >= this.rotationInterval) {
       this.lastRotation = time;
       this.board.rotateBlockClockwise();
     }

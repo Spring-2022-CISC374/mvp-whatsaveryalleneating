@@ -18,7 +18,6 @@ export class GameUIScene extends BaseGameScene {
         this.displayPoints();
 
         this.time.addEvent({ delay: 1000, loop: true, paused: false, callback: this.displayPPS, callbackScope: this });
-        this.game.events.addListener(GameData.gamePointsChangedEvent, this.displayPoints, this);
     }
 
     public displayPoints() {
