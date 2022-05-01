@@ -27,7 +27,7 @@ export class MenuScene extends BaseGameScene {
     if (this.showPoints) {
       const gameOverLabel = this.add.text(0, 150, "Game over", this.textStyle);
       gameOverLabel.x = (this.width - gameOverLabel.width) / 2;
-
+      backgroundSound.stop();
       const pointsLabel = this.add.text(0, 200, `You earned ${GameData.gamePoints} points`, this.textStyle);
       pointsLabel.x = (this.width - pointsLabel.width) / 2;
     }
