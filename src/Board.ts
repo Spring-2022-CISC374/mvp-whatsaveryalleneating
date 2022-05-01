@@ -179,7 +179,6 @@ export class Board extends Phaser.Events.EventEmitter {
         this.grid = [];
         for (let i = 0; i < this.gridHeight; i++) {
             this.grid.push(new Array(this.gridWidth).fill(null));
-            this.clearBlocks();
         }
     }
 
