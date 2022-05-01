@@ -21,6 +21,7 @@ export class Board extends Phaser.Events.EventEmitter {
     private tileSize = 0;
     private startX = 0;
     private startY = 0;
+    private gameOver=false;
 
     constructor(height: number, width: number, tileSize: number) {
         super();
@@ -38,7 +39,14 @@ export class Board extends Phaser.Events.EventEmitter {
 
     //new functions start here
     public addBlockToGrid(piece: GameObjects.Sprite) {
-        this.grid[(piece.y / 32) - 1][piece.x / 32] = piece;
+        console.log(piece.y/32)
+        if((piece.y / 32) !== 0){
+            this.grid[(piece.y / 32) - 1][piece.x / 32] = piece;
+        }
+        else{
+            this.gameOver=true;
+            this.emit(Board.boardFullEvent);       
+        }
     }
 
     public setCurrentBlock(block: Block) {
@@ -54,6 +62,9 @@ export class Board extends Phaser.Events.EventEmitter {
     }
 
     public clearBlocks() {
+        if(this.gameOver){
+            return;
+        }
         this.laidTiles.forEach((block) => {
             let count = 1;
             let queue = [block];
