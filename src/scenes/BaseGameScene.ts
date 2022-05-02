@@ -3,7 +3,7 @@ import { Game, Scene } from "phaser";
 export class BaseGameScene extends Scene {
 
     protected textColor = "#222222";
-    protected backgroundColor = 0xf8f8f8;
+    protected backgroundColor = 0xFFFFFF;
     protected gameBoardColor = 0xeeeeee;
 
     protected get width() {

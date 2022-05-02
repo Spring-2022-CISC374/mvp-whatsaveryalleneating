@@ -15,7 +15,7 @@ class Game extends Phaser.Game {
   private constructor() {
     const config = {
       height: 640,
-      backgroundColor: 0x000000,
+      backgroundColor: 0xFFFFFF,
       parent: "content",
       physics: {
         arcade: {

@@ -78,6 +78,10 @@ export class GameScene extends BaseGameScene {
     this.board.on(Board.boardFullEvent, this.gameOver, this);
     this.board.on(Board.blockWillBeLaidEvent, () => this.blockQuickDescend = true, this);
     this.board.on(Board.blockDescendEvent, () => this.blockQuickDescend = false, this);
+
+    // characters
+    this.add.image(370, 570, "avery");
+    this.add.image(450, 570, "roswell");
    
     
 
