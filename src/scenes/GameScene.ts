@@ -150,7 +150,7 @@ export class GameScene extends BaseGameScene {
     this.board.setCurrentBlock(this.generateBlock());
   }
 
-  private gameOver() {
+  public gameOver() {
     this.scene.remove(GameUIScene.name);
     this.scene.start(MenuScene.name, { showPoints: true });
   }

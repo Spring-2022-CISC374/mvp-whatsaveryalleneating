@@ -87,7 +87,6 @@ export abstract class Block {
     public createTile(scene: Scene, type: string): GameObjects.Sprite {
         const tile = scene.add.sprite(0, 0, type);
         tile.setOrigin(0, 0);
-        console.log(tile.texture.key);
         return tile;
     }
 }
