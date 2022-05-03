@@ -84,8 +84,11 @@ export class FoodPrep extends BaseGameScene{
             this.foods.mac.destroy();
 
             this.data.set('order','Nice Try!');
-            this.order.setText('Nice Try!');
-
+            this.order.setText('Nice Try! Click me');
+            this.order.setInteractive();
+            this.order.on('pointerup', () => {
+                this.scene.start("Hub");
+              })
         }
         
         this.text.setText([
@@ -98,8 +101,8 @@ export class FoodPrep extends BaseGameScene{
         this.add.text(5, this.height/8 - 20, 'Please select a food that the specific diet can eat!').setTint(0x000000);
         this.add.text(20, this.height/8, 'Select the right food to get more time!').setTint(0x000000);
         this.add.text(5, this.height/8 + 20, "But if you pick the wrong food, you'll lose time!").setTint(0x000000);
-        this.order = this.add.text(this.width/8, this.height/2 - 100, this.data.get('order'), {fontFamily: 'troika', fontSize: '64px'}).setTint(0x000000);
-        this.order.strokeThickness = 6;
+        this.order = this.add.text(this.width/8, this.height/2 + 200, this.data.get('order'), {fontFamily: 'troika', fontSize: '64px'}).setTint(0x000000);
+        this.order.strokeThickness = 5;
     }
 
     initImages(){
