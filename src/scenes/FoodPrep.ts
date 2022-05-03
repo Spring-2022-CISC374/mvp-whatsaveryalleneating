@@ -33,12 +33,12 @@ export class FoodPrep extends BaseGameScene{
         //this.load.image('salad', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/salad.png');
         //this.load.image('hamburger', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/hamburger.png');
         //this.load.image('pbandj', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/pbandj.png');
-        this.load.image('hamburger', '../assets/hamburger.png');
-        this.load.image('salad', '../assets/salad.png');
-        this.load.image('pbandj', '../assets/pbandj.png');
-        this.load.image('salmon', '../assets/salmon.png');
-        this.load.image('mac', '../assets/mac.png');
-        this.load.image('background', '../assets/foodpickerbackground.png')
+        this.load.image('hamburger', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/hamburger.png');
+        this.load.image('salad', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/salad.png');
+        this.load.image('pbandj', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/pbandj.png');
+        this.load.image('salmon', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/salmon.png');
+        this.load.image('mac', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/mac.png');
+        this.load.image('background', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/foodpickerbackground.png')
 
     }
     create(){
@@ -95,7 +95,7 @@ export class FoodPrep extends BaseGameScene{
     }
 
     displayInstructions(){
-        this.add.text(5, this.height/8 - 20, 'Please select a food that specific diet can eat!').setTint(0x000000);
+        this.add.text(5, this.height/8 - 20, 'Please select a food that the specific diet can eat!').setTint(0x000000);
         this.add.text(20, this.height/8, 'Select the right food to get more time!').setTint(0x000000);
         this.add.text(5, this.height/8 + 20, "But if you pick the wrong food, you'll lose time!").setTint(0x000000);
         this.order = this.add.text(this.width/8, this.height/2 - 100, this.data.get('order'), {fontFamily: 'troika', fontSize: '64px'}).setTint(0x000000);
