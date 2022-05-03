@@ -33,12 +33,12 @@ export class FoodPrep extends BaseGameScene{
         //this.load.image('salad', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/salad.png');
         //this.load.image('hamburger', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/hamburger.png');
         //this.load.image('pbandj', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/pbandj.png');
-        this.load.image('hamburger', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/hamburger.png');
-        this.load.image('salad', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/salad.png');
-        this.load.image('pbandj', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/pbandj.png');
-        this.load.image('salmon', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/salmon.png');
-        this.load.image('mac', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/mac.png');
-        this.load.image('background', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/foodpickerbackground.png')
+        this.load.image('hamburger', 'https://raw.githubusercontent.com/Spring-2022-CISC374/mvp-whatsaveryalleneating/master/assets/hamburger.png');
+        this.load.image('salad', 'https://raw.githubusercontent.com/Spring-2022-CISC374/mvp-whatsaveryalleneating/master/assets/salad.png');
+        this.load.image('pbandj', 'https://raw.githubusercontent.com/Spring-2022-CISC374/mvp-whatsaveryalleneating/master/assets/pbandj.png');
+        this.load.image('salmon', 'https://raw.githubusercontent.com/Spring-2022-CISC374/mvp-whatsaveryalleneating/master/assets/salmon.png');
+        this.load.image('mac', 'https://raw.githubusercontent.com/Spring-2022-CISC374/mvp-whatsaveryalleneating/master/assets/mac.png');
+        this.load.image('background', 'https://raw.githubusercontent.com/Spring-2022-CISC374/mvp-whatsaveryalleneating/master/assets/foodpickerbackground.png')
 
     }
     create(){
