@@ -1,5 +1,5 @@
 import { BaseGameScene } from "./BaseGameScene";
-import { Hub } from "./Hub";
+import { Load_Hub } from "./Load_Hub";
 
 export class End_UFO extends BaseGameScene {
 
@@ -9,7 +9,7 @@ export class End_UFO extends BaseGameScene {
 
   create() {
     this.game.scale.resize(this.width, this.height);
-    this.scene.start(Hub.name);
+    this.scene.start(Load_Hub.name);
   }
 
 }

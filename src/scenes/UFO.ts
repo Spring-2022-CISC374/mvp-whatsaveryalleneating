@@ -19,7 +19,7 @@ export class UFO extends BaseGameScene {
     this.bg.setOrigin(0,0);
     this.ufo = this.add.sprite(this.width / 5, this.height / 2, 'ufo');
     this.ufo.displayWidth = this.width / 5;
-    this.ufo.displayHeight = this.height / 10;
+    this.ufo.displayHeight = this.width / 5;
     this.ufo.setInteractive();
   }
 
