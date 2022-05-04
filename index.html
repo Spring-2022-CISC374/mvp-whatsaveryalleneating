@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>What's Avery Allen Eating?</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta http-equiv="cleartype" content="on">
-    <style>
-        html,
-        body,
-        canvas {
-            margin: 0 !important;
-            padding: 0 !important;
-            overflow: hidden !important;
-        }
+    <title>Collect Food</title>
 
-        button {
-            font-size: 200%;
+    <!-- include the phaser library-->
+    <script src="js/library/phaser.js"></script>
+
+    <!-- include the game states-->
+    <script src ="js/game/states/Boot.js"></script>
+    <script src ="js/game/states/Preload.js"></script>
+    <script src ="js/game/states/MainMenu.js"></script>
+    <script src ="js/game/states/Game.js"></script>
+
+
+
+    <!-- include our prefabs-->
+
+    <script src ="js/game/prefabs/Veg.js"></script>
+    <script src ="js/game/prefabs/Fries.js"></script>
+    <script src ="js/game/prefabs/Beef.js"></script>
+    <script src ="js/game/prefabs/Candy.js"></script>
+    <script src ="js/game/prefabs/Scoreboard.js"></script>
+
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px
         }
     </style>
 </head>
 
 <body>
-    <div id="content"></div>
-    <script src="vendors.bundle.js"></script>
-    <script src="main.bundle.js"></script>
+<!-- include the main game file-->
+<script src ="js/main.js"></script>
 </body>
 
 </html>
