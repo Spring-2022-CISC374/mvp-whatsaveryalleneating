@@ -4,6 +4,7 @@ import { MenuScene } from "./scenes/MenuScene"
 import { GameUIScene } from "./scenes/GameUIScene"
 import { FoodPrep } from "./scenes/FoodPrep";
 import { Hub } from "./scenes/Hub";
+import { Load_Hub } from "./scenes/Load_Hub";
 import { UFO } from "./scenes/UFO";
 import { Load_UFO } from "./scenes/Load_UFO";
 import { End_UFO } from "./scenes/End_UFO";
@@ -24,7 +25,7 @@ class Game extends Phaser.Game {
         default: "arcade",
       },
       pixelArt: false,
-      scene: [Hub, Load_UFO, UFO, End_UFO, LoadScene, MenuScene, GameScene, GameUIScene, FoodPrep, VT_Tut],
+      scene: [Load_Hub, Hub, Load_UFO, UFO, End_UFO, LoadScene, MenuScene, GameScene, GameUIScene, FoodPrep, VT_Tut],
       type: 0,
       width: 500,
       zoom: 1,

@@ -1,7 +1,7 @@
 import { BaseGameScene } from "./BaseGameScene";
 import GameData from "../GameData";
 import { GameScene } from "./GameScene";
-import { Hub } from "./Hub";
+import { Load_Hub } from "./Load_Hub";
 
 export class MenuScene extends BaseGameScene {
 
@@ -44,7 +44,7 @@ export class MenuScene extends BaseGameScene {
     backButton.setInteractive();
     backButton.on('pointerup', () => {
       backgroundSound.stop();
-      this.scene.start(Hub.name);
+      this.scene.start(Load_Hub.name);
     })
   }
 
