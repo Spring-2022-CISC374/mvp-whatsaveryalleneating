@@ -15,9 +15,12 @@ export class Hub extends BaseGameScene {
     background.alpha = 0.7;
     background.displayWidth = window.innerWidth;
     background.displayHeight = window.innerHeight;
-    const shipButton = this.add.sprite(window.innerWidth / 6, window.innerHeight / 4, 'ship');
-    const lunchButton = this.add.sprite(window.innerWidth / 2, window.innerHeight / 4, 'lady');
-    const tetrisButton = this.add.sprite(window.innerWidth / 2, 3 * window.innerHeight / 4, 'tet');
+    const shipButton = this.add.sprite(window.innerWidth / 2+350, 3*window.innerHeight / 3.8, 'ship');
+    this.add.text(window.innerWidth / 2+470, window.innerHeight / 3.8+400,"Tour De Nutrition")
+    const lunchButton = this.add.sprite(window.innerWidth / 3+400, 3 *window.innerHeight / 4.1-20, 'lady');
+    this.add.text(window.innerWidth / 3+350,3 *window.innerHeight / 4.1+100,"Food Picker")
+    const tetrisButton = this.add.sprite(window.innerWidth / 6+400, 3 * window.innerHeight / 4.1, 'tet');
+    this.add.text(window.innerWidth / 6+350,3 * window.innerHeight / 4.1+100,"Vitamin Tetris")
     shipButton.displayWidth = this.width / 2;
     shipButton.displayHeight = this.width / 2;
     lunchButton.displayWidth = this.width / 2;

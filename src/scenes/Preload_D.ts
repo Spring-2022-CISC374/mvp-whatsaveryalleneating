@@ -9,7 +9,7 @@ export class Preload_D extends BaseGameScene {
 
     preload() {
 
-        this.load.image('background1','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/images/stomach_backgroud.png');
+        this.load.image('background1','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/images/backgroud1.png');
         this.load.image('foreground1','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/images/foreground1.png');
         this.load.spritesheet('player','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/images/player.png');
         this.load.spritesheet('veg','https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/images/veg.png');

@@ -14,6 +14,13 @@ export class End_UFO extends BaseGameScene {
     const endText = `\nYou earned \n${localStorage.meat} Meat!  \n${localStorage.veg} Vegetables!  \n${localStorage.fries} Fries! \n`
     this.add.text(this.width / 4, this.height / 4, endText, {color: 'black'});
     setTimeout(() => {this.scene.start(Load_Hub.name)}, 5000);
+    const backButton = this.add.text(190, 500, "Go Back To Menu");
+    backButton.setBackgroundColor('darkBlue');
+    backButton.setInteractive();
+    backButton.on('pointerup', () => {
+      this.scene.start(Load_Hub.name);
+      location.reload(); 
+    })
   }
 
 }
