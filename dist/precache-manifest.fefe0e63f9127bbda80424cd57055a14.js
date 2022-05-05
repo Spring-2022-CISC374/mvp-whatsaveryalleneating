@@ -1,7 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "16ea102634d0e26cfa7804a4859203fb",
-    "url": "assets/alien.png"
+    "revision": "4bda71c96c966d0c0ad347a2488fb12b",
+    "url": "assets/RosswellSprite.png"
+  },
+  {
+    "revision": "041034eeb41f4a5bc99ebc2cd16c2885",
+    "url": "assets/avery.png"
   },
   {
     "revision": "8adedfd6ccefda3318d9dd430a9c1bdd",
@@ -80,6 +84,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets/fonts/minecraftia/minecraftia.xml"
   },
   {
+    "revision": "9cd980429e8fa86808c3ea4a4b36775c",
+    "url": "assets/foodpickerbackground.png"
+  },
+  {
+    "revision": "c4a9864c1255ebf530144304f073dd10",
+    "url": "assets/hamburger.png"
+  },
+  {
+    "revision": "d27cadb6101baed63add02e7da8a948c",
+    "url": "assets/hub_background.png"
+  },
+  {
     "revision": "194577a7e20bdcc7afbb718f502c134c",
     "url": "assets/images/.DS_Store"
   },
@@ -128,7 +144,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets/images/qqq.png"
   },
   {
-    "revision": "377d3d458729a41e57f9552d12522f8f",
+    "revision": "932c96b86a3b1dadb29fb5581e2ac0bd",
     "url": "assets/images/stomach_background.png"
   },
   {
@@ -140,24 +156,40 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets/images/veg.png"
   },
   {
-    "revision": "30ac59f49732441a263c800806effd32",
-    "url": "assets/lettuce.png"
-  },
-  {
     "revision": "666f45bd16825db0febb374268768d5a",
     "url": "assets/lineBreak.wav"
   },
   {
-    "revision": "d6846d0efbffc88809e312ff260d0421",
-    "url": "assets/peanut.png"
+    "revision": "272773f6e3ed65b7d6fb9b0df6343301",
+    "url": "assets/lunchlady.png"
+  },
+  {
+    "revision": "4537b87186c9dfc6f35fa7ce982ed2ef",
+    "url": "assets/mac.png"
+  },
+  {
+    "revision": "8180e95a4dc7710f51effe1a4a3deb07",
+    "url": "assets/pbandj.png"
   },
   {
     "revision": "4770fd8ca8e3a3362e3d5173f8bb0b65",
     "url": "assets/play-64.png"
   },
   {
-    "revision": "6a35959dca9009e4da01f88bca3a68ae",
-    "url": "assets/steak.png"
+    "revision": "968624dd6e15ae7a63e6d539379c7d3d",
+    "url": "assets/salad.png"
+  },
+  {
+    "revision": "e55e4bf4e543508ff1e95d0bb5e36771",
+    "url": "assets/salmon.png"
+  },
+  {
+    "revision": "b354fb0197074b8188ccd05b633391a0",
+    "url": "assets/ship.png"
+  },
+  {
+    "revision": "e51cc484695087f078bf4004401c3574",
+    "url": "assets/teacher.png"
   },
   {
     "revision": "8f8a8b98c655870f6b0502069cc630bc",
@@ -168,12 +200,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "index.html"
   },
   {
-    "revision": "77afb22ad8e4b1ea5d2b",
-    "url": "main.b6e2abb29fcc39dfe970.bundle.js"
-  },
-  {
     "revision": "d1653d20b43f3e9b89f28fbe575cdcf7",
     "url": "main.bundle.js"
+  },
+  {
+    "revision": "c0a4125893cc89d118f2",
+    "url": "main.ecb0d3b9cc30ad1b3d8c.bundle.js"
   },
   {
     "revision": "892f371075c5cc9b09ade971d2d5ae75",
@@ -184,12 +216,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "sw.js"
   },
   {
-    "revision": "fd542abf3c2354192eb7",
-    "url": "vendors.4995edf3fcab7c38681c.bundle.js"
-  },
-  {
     "revision": "b12bfa65be53ffc08a7e535331ddd86c",
     "url": "vendors.bundle.js"
+  },
+  {
+    "revision": "5fcd77cdc13127186c0d",
+    "url": "vendors.d20813bce1523ae06898.bundle.js"
   },
   {
     "revision": "5141139a7368122610875a5fa9ebec1a",
