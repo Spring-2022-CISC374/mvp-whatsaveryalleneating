@@ -37,6 +37,7 @@ export class GameScene extends BaseGameScene {
   private slideInterval = 50;
 
   private blockQuickDescend = false;
+  private pointText;
 
   private blockTypes = [JBlock, LBlock, SBlock, ZBlock, TBlock, IBlock, OBlock];
   private foodTypes = Array.from(foods.foodMap.keys())
@@ -80,6 +81,8 @@ export class GameScene extends BaseGameScene {
     this.board.on(Board.blockDescendEvent, () => this.blockQuickDescend = false, this);
 
     // characters
+    this.pointText = this.add.text(400, 100, "Points: " + GameData.gamePoints);
+    this.pointText.setColor('#000000')
     this.add.image(370, 570, "avery");
     this.add.image(450, 570, "roswell");
    
@@ -93,6 +96,7 @@ export class GameScene extends BaseGameScene {
   public update(time: number, delta: number) {
     this.nextFoodText = this.board.nextBlock.food;
     this.foodTextObject.setText(this.nextFoodText);
+    this.pointText.text = "Points: " + GameData.gamePoints
 
     var sprites = this.nextBlankBlock._tiles;
     sprites.forEach(sprite => {
@@ -136,22 +140,27 @@ export class GameScene extends BaseGameScene {
         this.board.slideBlock(-this.tileSize);
       }
     }
+    this.pointText.text = "Points: " + GameData.gamePoints;
+
   }
 
   private onLineBreak(numberOfLines: number) {
+    console.log("break")
     this.lineBreakSound.play();
-    const multiplier = [0, 1, 1.5, 2, 2.5];
-    GameData.gamePoints += this.pointsPerLine * numberOfLines * multiplier[numberOfLines];
+    GameData.gamePoints += this.pointsPerLine;
     this.blockQuickDescend = false;
     this.board.setCurrentBlock(this.generateBlock());
+    this.pointText.text = "Points: " + GameData.gamePoints;
   }
 
   private onLaidBlock() {
+    console.log("fall")
     GameData.gamePoints += this.pointsPerBlock;
     this.descendInterval -= 1;
     this.tickSound.play();
     this.blockQuickDescend = false;
     this.board.setCurrentBlock(this.generateBlock());
+    this.pointText.text = "Points: " + GameData.gamePoints;
   }
 
   public gameOver() {
@@ -169,7 +178,6 @@ export class GameScene extends BaseGameScene {
 
 
   private generateBlock(): Block {
-    // TODO: Add preview of next block that will appear via food type
     this.foodTypes = this.foodTypes.filter(food => food != 'blank');
     const blockType = this.blockTypes[Math.floor(Math.random() * this.blockTypes.length)];
     const food = this.foodTypes[Math.floor(Math.random() * this.foodTypes.length)];
