@@ -10,6 +10,7 @@ export class Board extends Phaser.Events.EventEmitter {
 
     public height: number;
     public width: number;
+    private emitter: number;
 
     private laidTiles: GameObjects.Sprite[];
     public gridWidth = 10;
@@ -29,6 +30,7 @@ export class Board extends Phaser.Events.EventEmitter {
         this.width = width;
         this.tileSize = tileSize;
         this.grid = [];
+        this.emitter = 0;
         this.startX = (this.width / 2) - this.tileSize;
         for (let i = 0; i < this.gridHeight; i++) {
             this.grid.push(new Array(this.gridWidth).fill(null));
@@ -106,6 +108,7 @@ export class Board extends Phaser.Events.EventEmitter {
             }
             if (count >= 5) {
                 var lines = [];
+                this.emitter = 1;
                 //create lines to fall down some
                 blocksToDestroy.forEach(block => {
                     var gridY = (block.y / 32) - 1;
@@ -127,7 +130,6 @@ export class Board extends Phaser.Events.EventEmitter {
                     blockToDelete.destroy()
                 });
                 this.dropToEmptyPos(lines);
-                return blocksToDestroy.length;
             }
         });
         return 0
@@ -227,9 +229,15 @@ export class Board extends Phaser.Events.EventEmitter {
             this.laidTiles.forEach(sprite => {
                 this.addBlockToGrid(sprite);
             })
-
-            const removedLinesCount = this.checkFullLines();
-            this.emit(removedLinesCount > 0 ? Board.lineBrakeEvent : Board.blockLaidEvent, removedLinesCount);
+            console.log("emitter")
+            console.log(this.emitter);
+            if(this.emitter){
+                this.emit(Board.lineBrakeEvent)
+                this.emitter = 0;
+            }
+            else{
+                this.emit(Board.blockLaidEvent)
+            }
             this.clearBlocks();
             if (this.laidTiles.some(tile => tile.y === 0)) {
                 this.emit(Board.boardFullEvent);
