@@ -29,6 +29,8 @@ export class FoodPrep extends BaseGameScene{
         this.data.set('order', this.randomOrder);
         this.data.set('time', 40);
         this.data.set('foodTime', 10);
+        this.data.set('correctFood', 0);
+        this.data.set('wrongFood', 0);
 
         //this.load.image('salad', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/salad.png');
         //this.load.image('hamburger', 'https://spring-2022-cisc374.github.io/mvp-whatsaveryalleneating/assets/hamburger.png');
@@ -49,7 +51,9 @@ export class FoodPrep extends BaseGameScene{
         this.text = this.add.text(20,20, '').setTint(0x000000);
         this.text.setText([
             'Time: ' + this.data.get('time'), 
-            'FoodTimer: ' + this.data.get('foodTime')
+            'Food Timer: ' + this.data.get('foodTime'),
+            'Correct Food: ' + this.data.get('correctFood'),
+            'Wrong Food: ' + this.data.get('wrongFood')
         ]);
 
         this.initializeFoodCategories();
@@ -75,7 +79,7 @@ export class FoodPrep extends BaseGameScene{
             this.resetOrderTime();
         }
 
-        if(this.data.get('time') <= 0){
+        if(this.data.get('time') <= 0 || this.data.get('wrongFood') >= 10){
             this.timer.remove();
             this.foods.salad.destroy();
             this.foods.hamburger.destroy();
@@ -84,7 +88,8 @@ export class FoodPrep extends BaseGameScene{
             this.foods.mac.destroy();
 
             this.data.set('order','Nice Try!');
-            this.order.setText('Nice Try! Click me');
+            this.order.setText('Nice Try! Click me to go back');
+            this.order.setFontSize('32px');
             this.order.setInteractive();
             this.order.on('pointerup', () => {
                 this.scene.start("Hub");
@@ -93,28 +98,28 @@ export class FoodPrep extends BaseGameScene{
         
         this.text.setText([
             'Time: ' + this.data.get('time'), 
-            'FoodTimer: ' + this.data.get('foodTime')
+            'Food Timer: ' + this.data.get('foodTime'),
+            'Correct Food: ' + this.data.get('correctFood'),
+            'Wrong Food: ' + this.data.get('wrongFood')
         ]);
     }
 
     displayInstructions(){
-        this.add.text(5, this.height/8 - 20, 'Please select a food that the specific diet can eat!').setTint(0x000000);
-        this.add.text(20, this.height/8, 'Select the right food to get more time!').setTint(0x000000);
-        this.add.text(5, this.height/8 + 20, "But if you pick the wrong food, you'll lose time!").setTint(0x000000);
-        this.order = this.add.text(this.width/8, this.height/2 + 200, this.data.get('order'), {fontFamily: 'troika', fontSize: '64px'}).setTint(0x000000);
+        this.add.text(3*this.width/4, this.height/8 - 40, 'Please select a food that the specific diet can eat!').setTint(0x000000);
+        this.add.text(3*this.width/4, this.height/8 - 20, 'Select the right food to get more time!').setTint(0x000000);
+        this.add.text(3*this.width/4, this.height/8, "But if you pick the wrong food, you'll lose time!").setTint(0x000000);
+        this.add.text(3*this.width/4, this.height/8 + 20, "And if you get 10 wrong, Game Over!").setTint(0x000000);
+        this.order = this.add.text(3*this.width/4 + 20, this.height/4, this.data.get('order'), {fontFamily: 'troika', fontSize: '64px'}).setTint(0x000000);
         this.order.strokeThickness = 5;
     }
 
     initImages(){
-        //background
-        
 
-
-        this.foods.salad = this.add.image(this.width/4 - 20, this.height/2 + 100, 'salad');
+        this.foods.salad = this.add.image(5*this.width/6, this.height/2 + 100, 'salad');
         this.foods.salad.setScale(.25);
-        this.foods.hamburger = this.add.image(this.width/2, this.height/2 + 100, 'hamburger');
+        this.foods.hamburger = this.add.image(5*this.width/4, this.height/2 + 100, 'hamburger');
         this.foods.hamburger.setScale(.15);
-        this.foods.pbandj = this.add.image(3*this.width/4 + 20, this.height/2 + 100, 'pbandj');
+        this.foods.pbandj = this.add.image(5*this.width/3, this.height/2 + 100, 'pbandj');
         this.foods.pbandj.setScale(.1);
         this.foods.salmon = this.add.image(this.width/2, this.height/2 + 100, 'salmon');
         this.foods.salmon.setScale(.15);
@@ -218,8 +223,10 @@ export class FoodPrep extends BaseGameScene{
         this.foods.pbandj.on('pointerdown', () => {
             if(this.foodsCategories.get('pbandj').indexOf(this.data.get('order')) > -1){
                 this.data.set('time', this.data.get('time') + 5);
+                this.data.set('correctFood', this.data.get('correctFood') + 1);
             }else{
                 this.data.set('time', this.data.get('time') - 5);
+                this.data.set('wrongFood', this.data.get('wrongFood') + 1);
             }
             this.resetOrderTime();
         });
@@ -227,8 +234,10 @@ export class FoodPrep extends BaseGameScene{
         this.foods.hamburger.on('pointerdown', () => {
             if(this.foodsCategories.get('hamburger').indexOf(this.data.get('order')) > -1){
                 this.data.set('time', this.data.get('time') + 5);
+                this.data.set('correctFood', this.data.get('correctFood') + 1);
             }else{
                 this.data.set('time', this.data.get('time') - 5);
+                this.data.set('wrongFood', this.data.get('wrongFood') + 1);
             }
             this.resetOrderTime();
         });
@@ -236,8 +245,10 @@ export class FoodPrep extends BaseGameScene{
         this.foods.salad.on('pointerdown', () => {
             if(this.foodsCategories.get('salad').indexOf(this.data.get('order')) > -1){
                 this.data.set('time', this.data.get('time') + 5);
+                this.data.set('correctFood', this.data.get('correctFood') + 1);
             }else{
                 this.data.set('time', this.data.get('time') - 5);
+                this.data.set('wrongFood', this.data.get('wrongFood') + 1);
             }
             this.resetOrderTime();
         });
@@ -246,8 +257,10 @@ export class FoodPrep extends BaseGameScene{
         this.foods.salmon.on('pointerdown', () => {
             if(this.foodsCategories.get('salmon').indexOf(this.data.get('order')) > -1){
                 this.data.set('time', this.data.get('time') + 5);
+                this.data.set('correctFood', this.data.get('correctFood') + 1);
             }else{
                 this.data.set('time', this.data.get('time') - 5);
+                this.data.set('wrongFood', this.data.get('wrongFood') + 1);
             }
             this.resetOrderTime();
         });
@@ -256,8 +269,10 @@ export class FoodPrep extends BaseGameScene{
         this.foods.mac.on('pointerdown', () => {
             if(this.foodsCategories.get('mac').indexOf(this.data.get('order')) > -1){
                 this.data.set('time', this.data.get('time') + 5);
+                this.data.set('correctFood', this.data.get('correctFood') + 1);
             }else{
                 this.data.set('time', this.data.get('time') - 5);
+                this.data.set('wrongFood', this.data.get('wrongFood') + 1);
             }
             this.resetOrderTime();
         });
