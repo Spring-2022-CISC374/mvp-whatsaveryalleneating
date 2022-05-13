@@ -1,5 +1,9 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
+    "revision": "357f2738da5bb9fd64c21f98e42764e9",
+    "url": "assets/AveryAllenOpening.mp4"
+  },
+  {
     "revision": "4bda71c96c966d0c0ad347a2488fb12b",
     "url": "assets/RosswellSprite.png"
   },
@@ -196,16 +200,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets/tickSound.wav"
   },
   {
-    "revision": "1eb69a1e3e9e7b596a256b37ea87c04b",
+    "revision": "db69ac1e2dc66b162cd44b68756e249a",
     "url": "index.html"
+  },
+  {
+    "revision": "28c84541eaf7feb8099f",
+    "url": "main.0d231b3cbbeca4a7bc71.bundle.js"
   },
   {
     "revision": "d1653d20b43f3e9b89f28fbe575cdcf7",
     "url": "main.bundle.js"
-  },
-  {
-    "revision": "c0a4125893cc89d118f2",
-    "url": "main.ecb0d3b9cc30ad1b3d8c.bundle.js"
   },
   {
     "revision": "892f371075c5cc9b09ade971d2d5ae75",
@@ -216,12 +220,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "sw.js"
   },
   {
-    "revision": "b12bfa65be53ffc08a7e535331ddd86c",
-    "url": "vendors.bundle.js"
+    "revision": "c44d7d4649a190429a6d",
+    "url": "vendors.b9cb76e3d06fe9ee6a40.bundle.js"
   },
   {
-    "revision": "5fcd77cdc13127186c0d",
-    "url": "vendors.d20813bce1523ae06898.bundle.js"
+    "revision": "b12bfa65be53ffc08a7e535331ddd86c",
+    "url": "vendors.bundle.js"
   },
   {
     "revision": "5141139a7368122610875a5fa9ebec1a",
