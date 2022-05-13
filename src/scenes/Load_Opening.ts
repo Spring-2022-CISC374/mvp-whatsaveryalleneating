@@ -9,7 +9,7 @@ export class Load_Opening extends BaseGameScene {
 
   public preload() {
     this.game.config.fullscreenTarget
-    this.load.video('opening', 'https://github.com/Spring-2022-CISC374/mvp-whatsaveryalleneating/blob/master/assets/AveryAllenOpening.mp4');
+    this.load.video('opening', 'assets/AveryAllenOpening.mp4');
   }
 
   public create() {
